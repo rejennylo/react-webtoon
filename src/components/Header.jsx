@@ -36,7 +36,7 @@ export const Header = () => {
               className="focus:outline-none text-xs"
             />
           </span>
-          <span className="inline-block ">
+          <span className="inline-block">
             <span className="border-solid border-l border-gray-300 h-5"></span>
             <img
               src={search}
