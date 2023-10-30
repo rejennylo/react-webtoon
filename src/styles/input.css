@@ -5,3 +5,8 @@
 * {
   /* outline: 1px solid orange; */
 }
+
+#menu_control:checked ~ div nav {
+  top: 0px;
+  transition: .5s;
+}
