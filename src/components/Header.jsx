@@ -2,37 +2,35 @@ import { useState } from "react";
 
 export const Header = () => {
   const navItems = ["正式連載", "分類", "人氣排行榜", "投稿新星專區"];
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
-  
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
   const toggleSearch = () => {
-    setIsSearchOpen(!isSearchOpen)
-  }
-  
+    setIsSearchOpen(!isSearchOpen);
+  };
+
   return (
     <>
-      {/* header -start */}
-      <header>
-        <input
-          type="checkbox"
-          id="menu_control"
-          className="absolute top-0 z-[-10]"
-        />
-        <div className="flex m-auto items-center max-w-[1360px] relative py-4 bg-white">
-          <h1 className="z-10">
-            <a
-              href="#"
-              className="inline-block h-[74px] w-[77px] lg:mr-10 ml-5 bg-icons [background-position-x:-1180px] [background-position-y:-505px]"
-            ></a>
-          </h1>
-          <label
-            htmlFor="menu_control"
-            className="absolute right-0 mr-5 h-[48px] w-[52px] before:absolute before:h-[6px] before:w-full before:bg-gray-500 before:top-0 before:bottom-0 before:m-auto before:shadow-[0_14px_0_rgba(107,114,128,1),0_-14px_0_rgba(107,114,128,1)] lg:hidden z-10"
-          ></label>
-          {/* nav -start */}
-          <nav className="absolute top-[-350px] mt-24 pb-3 lg:mt-0 h-auto w-full lg:w-auto bg-white lg:bg-transparent lg:relative lg:top-0 items-center z-9">
-            <ul className="flex flex-col lg:flex-row items-center">
-              {navItems.map((item, index) => (
-                <li key={index} className="m-3 lg:pr-4 lg:first:pl-0">
+      <header className=" relative z-[100]">
+        <div className="relative lg:flex items-center m-auto max-w-[1360px]">
+          <input type="checkbox" id="nav_control" className="peer/nav_control" />
+        <h1>
+          <a
+            href="#"
+            className="inline-block h-[74px] w-[77px] mt-2 ml-3 bg-icons [background-position-x:-1180px] [background-position-y:-505px]"
+          ></a>
+        </h1>
+        <label
+          htmlFor="nav_control"
+          className="absolute block lg:hidden w-[42px] h-[30px] top-0 right-0 mt-[28px] mr-3 hamburger_icon"
+        ></label>
+        <nav className="absolute w-full lg:relative lg:w-[600px] nav_off nav_on lg:scale-y-100 lg:opacity-100">
+          <ul className="flex flex-col lg:flex-row items-center bg-white">
+            {navItems.map((item, i) => {
+              return (
+                <li
+                  key={i}
+                  className="first:mt-3 mb-3 lg:first:mt-0 lg:mb-0 first:lg:ml-10 lg:mr-10"
+                >
                   <a
                     href="#"
                     className="text-xl inline-block font-medium hover:text-teal-500"
@@ -40,19 +38,10 @@ export const Header = () => {
                     {item}
                   </a>
                 </li>
-              ))}
-              <span className="hidden lg:block lg:border-solid lg:border-l lg:border-gray-300 ml-2 h-10"></span>
-              <li className="m-3 lg:px-4 lg:first:pl-0 lg:hidden">
-                <a
-                  href="#"
-                  className="text-xl inline-block font-medium text-gray-500 hover:text-teal-500"
-                >
-                  登入
-                </a>
-              </li>
-            </ul>
-          </nav>
-          {/* nav -end */}
+              );
+            })}
+          </ul>
+        </nav>
           {/* right -start */}
           <ul className="hidden lg:absolute lg:flex lg:flex-row items-center lg:my-8 lg:right-0 lg:mr-5">
             <li className="flex justify-center items-center rounded-full ml-3 h-[33px] w-28 bg-gray-800 hover:bg-black">
@@ -114,7 +103,6 @@ export const Header = () => {
           {/* search -end */}
         </div>
       </header>
-      {/* header -end */}
     </>
   );
 };

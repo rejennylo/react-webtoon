@@ -7,6 +7,7 @@ function App() {
 
   return (
     <>
+      {/* <Test /> */}
       <Header />
       <FrontPage />
       <Footer />

@@ -3,10 +3,20 @@
 @tailwind utilities;
 
 * {
-  /* outline: 1px solid orange; */
+  outline: 1px solid orange;
 }
 
-#menu_control:checked ~ div nav {
-  top: 0px;
-  transition: .5s;
+@layer components {
+  #nav_control {
+    @apply absolute opacity-0
+  }
+  .hamburger_icon {
+    @apply before:absolute before:h-[6px] before:w-full before:bg-gray-500 before:top-0 before:bottom-0 before:m-auto before:shadow-[0_14px_0_rgba(107,114,128,1),0_-14px_0_rgba(107,114,128,1)];
+  }
+  .nav_off {
+    @apply transition-transform duration-300 ease-out origin-top scale-x-100 scale-y-0 opacity-0;
+  }
+  .nav_on {
+    @apply peer-checked/nav_control:scale-y-100 peer-checked/nav_control:opacity-100;
+  }
 }

@@ -1,3 +1,18 @@
+const snsIcons = [
+  { id: 1, position: "[background-position-x:-1093px] [background-position-y:-874px] ", size: "h-[18px] w-[18px] "},
+  { id: 2, position: "[background-position-x:-239px] [background-position-y:-1086px] ", size: "h-[18px] w-[19px] "},
+  { id: 3, position: "[background-position-x:-1040px] [background-position-y:-1013px] ", size: "h-[18px] w-[20px] "},
+];
+
+const footerMenuItems = [
+  { id: 1, text: "意見回饋", class: "border-l h-3 mx-4" },
+  { id: 2, text: "幫助", class: "border-l h-3 mx-4" },
+  { id: 3, text: "條款", class: "border-l h-3 mx-4" },
+  { id: 4, text: "隱私保護", class: "border-l h-3 mx-4" },
+  { id: 5, text: "廣告", class: "border-l h-3 mx-4" },
+  { id: 6, text: "作品授權及異業合作", class: "" },
+];
+
 export const Footer = () => {
   return (
     <div className="bg-gray-100">
@@ -40,56 +55,31 @@ export const Footer = () => {
       {/* sns -start */}
       <div className="flex justify-center pt-8 border-solid border-t border-gray-200">
         <ul className="flex justify-center">
-          <li className="flex">
-            <a
-              href="#"
-              className="inline-block h-[18px] w-[18px] mx-6 bg-icons [background-position-x:-1093px] [background-position-y:-874px]"
-            ></a>
-          </li>
-          <li className="flex">
-            <a
-              href="#"
-              className="inline-block h-[18px] w-[19px] mx-6 bg-icons [background-position-x:-239px] [background-position-y:-1086px]"
-            ></a>
-          </li>
-          <li className="flex">
-            <a
-              href="#"
-              className="inline-block h-[18px] w-[20px] mx-6 bg-icons [background-position-x:-1040px] [background-position-y:-1013px]"
-            ></a>
-          </li>
+          {snsIcons.map((icon) => {
+            return (
+              <li key={icon.id} className="flex">
+                <a
+                  href="#"
+                  className={`${
+                    icon.position + icon.size
+                  } inline-block bg-icons mx-6 `}
+                ></a>
+              </li>
+            );
+          })}
         </ul>
       </div>
       {/* sns -end */}
       {/* footer menu -start */}
       <ul className="flex justify-center pt-7">
-        <li>
-          <a href="#">意見回饋</a>
-          <span className="border-l h-3 mx-4"></span>
-        </li>
-        <li>
-          <a href="#">幫助</a>
-          <span className="border-l h-3 mx-4"></span>
-        </li>
-        <li>
-          <a href="#">條款</a>
-          <span className="border-l h-3 mx-4"></span>
-        </li>
-        <li>
-          <a href="#">隱私權保護</a>
-          <span className="border-l h-3 mx-4"></span>
-        </li>
-        <li>
-          <a href="#">廣告</a>
-          <span className="border-l h-3 mx-4"></span>
-        </li>
-        <li>
-          <a href="#">作品授權及異業合作</a>
-          <span className="border-l h-3 mx-4"></span>
-        </li>
-        <li>
-          <a href="#">繁體中文</a>
-        </li>
+        {footerMenuItems.map((item) => {
+          return (
+            <li key={item.id}>
+              <a href="#">{item.text}</a>
+              <span className={item.class}></span>
+            </li>
+          );
+        })}
       </ul>
       {/* footer menu -end */}
       {/* copyright */}
