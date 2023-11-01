@@ -1,3 +1,4 @@
+import { Banner } from "../components/Banner";
 import { CardSmall } from "./../components/common/CardSmall";
 
 const DummyData = [
@@ -96,6 +97,7 @@ const weekday = ["週一", "週二", "週三", "週四", "週五", "週六", "�
 export const FrontPage = () => {
   return (
     <>
+      <Banner />
       {/* main daily wrap -start */}
       <div className="flex flex-col">
         {/* daily tab wrap -start */}

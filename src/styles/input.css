@@ -19,4 +19,7 @@
   .nav_on {
     @apply peer-checked/nav_control:scale-y-100 peer-checked/nav_control:opacity-100;
   }
+  .banner-bg{
+    @apply bg-[url('/src/assets/dummy/home_bg002.jpg')];
+  }
 }

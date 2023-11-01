@@ -6,6 +6,9 @@ export default {
       backgroundImage: {
         icons: "url('/src/assets/sp_webtoon_838a1cd1.png')",
       },
+      screens: {
+        'lgs':'1150px',
+      },
     },
   },
   plugins: [],
