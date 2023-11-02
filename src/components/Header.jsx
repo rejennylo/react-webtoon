@@ -11,7 +11,7 @@ export const Header = () => {
   return (
     <>
       <header className=" relative z-[100]">
-        <div className="relative lg:flex items-center m-auto max-w-[1360px]">
+        <div className="relative lgs:flex items-center m-auto max-w-[1360px]">
           <input type="checkbox" id="nav_control" className="peer/nav_control" />
         <h1>
           <a
@@ -21,15 +21,15 @@ export const Header = () => {
         </h1>
         <label
           htmlFor="nav_control"
-          className="absolute block lg:hidden w-[42px] h-[30px] top-0 right-0 mt-[28px] mr-3 hamburger_icon"
+          className="absolute block lgs:hidden w-[42px] h-[30px] top-0 right-0 mt-[28px] mr-3 hamburger_icon"
         ></label>
-        <nav className="absolute w-full lg:relative lg:w-[600px] nav_off nav_on lg:scale-y-100 lg:opacity-100">
-          <ul className="flex flex-col lg:flex-row items-center bg-white">
+        <nav className="absolute w-full lgs:relative lgs:w-[600px] nav_off nav_on lgs:scale-y-100 lgs:opacity-100">
+          <ul className="flex flex-col lgs:flex-row items-center bg-white">
             {navItems.map((item, i) => {
               return (
                 <li
                   key={i}
-                  className="first:mt-3 mb-3 lg:first:mt-0 lg:mb-0 first:lg:ml-10 lg:mr-10"
+                  className="first:mt-3 mb-3 lgs:first:mt-0 lgs:mb-0 first:lgs:ml-10 lgs:mr-10"
                 >
                   <a
                     href="#"
@@ -43,7 +43,7 @@ export const Header = () => {
           </ul>
         </nav>
           {/* right -start */}
-          <ul className="hidden lg:absolute lg:flex lg:flex-row items-center lg:my-8 lg:right-0 lg:mr-5">
+          <ul className="hidden lgs:absolute lgs:flex lgs:flex-row items-center lgs:my-8 lgs:right-0 lgs:mr-5">
             <li className="flex justify-center items-center rounded-full ml-3 h-[33px] w-28 bg-gray-800 hover:bg-black">
               <a
                 href="#"
@@ -60,7 +60,7 @@ export const Header = () => {
                 登入
               </a>
             </li>
-            <span className="hidden lg:block lg:border-solid lg:border-l lg:border-gray-300 lg:ml-3 lg:h-5"></span>
+            <span className="hidden lgs:block lgs:border-solid lgs:border-l lgs:border-gray-300 lgs:ml-3 lgs:h-5"></span>
             <li
               className="flex justify-center items-center ml-3"
               onClick={toggleSearch}

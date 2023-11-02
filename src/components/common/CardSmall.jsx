@@ -6,13 +6,24 @@ const stateIcons = [
   { id: 3, state: "暫停", text: "text-white ", bg: "bg-teal-500 " },
 ];
 
-export const CardSmall = ({ title, author, synopsis, type, likeis, textColor, bgColor }) => {
-  console.log(textColor)
-  console.log(bgColor)
+export const CardSmall = ({
+  title,
+  author,
+  synopsis,
+  type,
+  likeis,
+  textColor,
+  bgColor,
+  styles,
+}) => {
   return (
-    <li className="card-s flex list-none h-[210px] w-[210px] relative">
+    <li
+      className={
+        styles + " card-s inline-block list-none h-[210px] w-[210px] relative"
+      }
+    >
       <a href="#" className="h-full w-full">
-        <div className="h-full w-full relative z-10">
+        <div className="h-[210px] w-[210px] relative z-10">
           <div className="card_front">
             <div className="info p-3">
               <h3 className="text-xl font-semibold">{title}</h3>
@@ -50,7 +61,9 @@ export const CardSmall = ({ title, author, synopsis, type, likeis, textColor, bg
               <div className="py-1 flex flex-col">
                 <p className="text-sm text-white">{author}</p>
                 <span className="border-solid border-b border-gray-300 w-4 mt-2 mb-3"></span>
-                <p className="text-xs text-white">{synopsis}</p>
+                <p className="text-xs text-white whitespace-normal">
+                  {synopsis}
+                </p>
               </div>
             </div>
           </div>

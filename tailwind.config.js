@@ -7,9 +7,9 @@ export default {
         icons: "url('/src/assets/sp_webtoon_838a1cd1.png')",
       },
       screens: {
-        'lgs':'1150px',
+        lgs: "1150px",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };
