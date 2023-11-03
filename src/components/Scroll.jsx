@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { CardLarge } from "./common/CardLarge";
 import { CardSmall } from "./common/CardSmall";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
@@ -84,13 +85,27 @@ const DummyData = [
 ];
 
 export const Scroll = () => {
+  const scrollRef = useRef(null);
+  
+  const handelScroll = (direction) => {
+    const scrollAmount = 1120;
+
+    direction === "left"
+      ? (scrollRef.current.scrollLeft -= scrollAmount)
+      : (scrollRef.current.scrollLeft += scrollAmount);
+  };
+
   return (
     <div className="m-auto h-[362px] max-w-[1110px]">
       <h2 className="text-xl font-semibold text-center pt-8 pb-6">新作推薦</h2>
       <div className="relative flex items-center">
-        <FiChevronLeft className="absolute top-[85px] left-0 xl:-left-[50px] h-[50px] w-[50px] z-[100] opacity-30 hover:opacity-100" />
+        <FiChevronLeft
+          onClick={() => handelScroll("left")}
+          className="absolute top-[85px] left-0 xl:-left-[50px] h-[50px] w-[50px] z-[100] opacity-30 hover:opacity-100"
+        />
         <ul
           id="scroll"
+          ref={scrollRef}
           className="h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth flex scrollbar-hide"
         >
           {DummyData.map((item, i) => {
@@ -121,7 +136,10 @@ export const Scroll = () => {
             );
           })}
         </ul>
-        <FiChevronRight className="absolute top-[85px] right-0 xl:-right-[50px] h-[50px] w-[50px] z-[100] opacity-30 hover:opacity-100" />
+        <FiChevronRight
+          onClick={() => handelScroll("right")}
+          className="absolute top-[85px] right-0 xl:-right-[50px] h-[50px] w-[50px] z-[100] opacity-30 hover:opacity-100"
+        />
       </div>
     </div>
   );
