@@ -1,11 +1,9 @@
-import { Footer } from "./components/Footer"
-import { Header } from "./components/Header"
-import { CardLarge } from "./components/common/CardLarge"
-import { FrontPage } from "./pages/FrontPage"
+import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
+import { FrontPage } from "./pages/FrontPage";
 // import{Forms} from "./pages/Forms"
 
 function App() {
-
   return (
     <>
       {/* <Test /> */}
@@ -17,4 +15,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

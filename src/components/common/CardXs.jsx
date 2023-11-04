@@ -1,4 +1,4 @@
-export const CardXs = ({title, author, type, number, image}) => {
+export const CardXs = ({title, author, genre, number, image}) => {
   return (
     <li className="card-xs py-2 relative">
       <a
@@ -10,7 +10,7 @@ export const CardXs = ({title, author, type, number, image}) => {
           <span className="text-xl font-semibold">{number}</span>
         </span>
         <div>
-          <p className="text-sm text-gray-400">{type}</p>
+          <p className="text-sm text-gray-400">{genre}</p>
           <p className="text-xl font-semibold my-1">{title}</p>
           <p className="text-sm">{author}</p>
         </div>
