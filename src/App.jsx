@@ -11,7 +11,7 @@ function App() {
       {/* <Test /> */}
       <Header />
       <FrontPage />
-      {/* <Footer /> */}
+      <Footer />
       {/* <Forms /> */}
     </>
   );
