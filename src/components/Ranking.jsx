@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import { CardXs } from "./common/CardXs";
 import { FiChevronRight, FiCheck } from "react-icons/fi";
 
@@ -7,76 +8,82 @@ const dummyData = [
     author: "作者Ａ",
     genre: "奇幻冒險",
     imagexs: "../../src/assets/dummy/320230315-_______thumb_M_240x254.png",
-    number: 1,
   },
   {
     title: "作品Ｂ",
     author: "作者Ｂ",
     genre: "台灣原創作品",
     imagexs: "../../src/assets/dummy/320230315-_______thumb_M_240x254.png",
-    number: 2,
   },
   {
     title: "作品Ｃ",
     author: "作者Ｃ",
     genre: "驚悚 / 恐怖",
     imagexs: "../../src/assets/dummy/320230315-_______thumb_M_240x254.png",
-    number: 3,
   },
   {
     title: "作品Ｄ",
     author: "作者Ｄ",
     genre: "愛情",
     imagexs: "../../src/assets/dummy/320230315-_______thumb_M_240x254.png",
-    number: 4,
   },
   {
     title: "作品Ｅ",
     author: "作者Ｅ",
     genre: "奇幻冒險",
     imagexs: "../../src/assets/dummy/320230315-_______thumb_M_240x254.png",
-    number: 5,
   },
   {
     title: "作品Ｆ",
     author: "作者Ｆ",
     genre: "愛情",
     imagexs: "../../src/assets/dummy/320230315-_______thumb_M_240x254.png",
-    number: 6,
   },
   {
     title: "作品Ｇ",
     author: "作者Ｇ",
     genre: "台灣原創作品",
     imagexs: "../../src/assets/dummy/320230315-_______thumb_M_240x254.png",
-    number: 7,
   },
   {
     title: "作品Ｈ",
     author: "作者Ｈ",
     genre: "奇幻冒險",
     imagexs: "../../src/assets/dummy/320230315-_______thumb_M_240x254.png",
-    number: 8,
   },
   {
     title: "作品Ｈ",
     author: "作者Ｈ",
     genre: "驚悚 / 恐怖",
     imagexs: "../../src/assets/dummy/320230315-_______thumb_M_240x254.png",
-    number: 9,
   },
   {
     title: "作品Ｈ",
     author: "作者Ｈ",
     genre: "奇幻冒險",
     imagexs: "../../src/assets/dummy/320230315-_______thumb_M_240x254.png",
-    number: 10,
   },
 ];
 
-const sorts = ["全部", "愛情", "奇幻冒險", "驚悚 / 恐怖", "台灣原創作品"];
-
 export const Ranking = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const isCheckRef = useRef("全部");
+  const sorts = ["全部", "愛情", "奇幻冒險", "驚悚 / 恐怖", "台灣原創作品"];
+
+  const toggleMenu = (event) => {
+    event.preventDefault();
+    setIsOpen(!isOpen);
+  };
+
+  const handleSortClick = (event) => {
+    event.preventDefault();
+    setIsOpen(!isOpen);
+
+    const checkedSort = event.currentTarget.textContent;
+    isCheckRef.current =
+      checkedSort === isCheckRef.current ? isCheckRef.current : checkedSort;
+  };
+
   return (
     <div className="ranking-wrap px-16">
       <div className="ranking-container max-w-[1110px] m-auto py-10 flex gap-16">
@@ -97,7 +104,7 @@ export const Ranking = () => {
                   title={item.title}
                   author={item.author}
                   genre={item.genre}
-                  number={item.number}
+                  number={i + 1}
                   image={item.imagexs}
                 />
               );
@@ -113,22 +120,32 @@ export const Ranking = () => {
               <FiChevronRight className="h-7 w-7" />
             </h2>
             <div className="sort-area font-medium text-gray-400 relative">
-              <a href="#" className="flex items-center">
-                全部
-                <FiCheck className="h-6 w-6 ml-2" />
+              <a href="#" className="flex items-center" onClick={toggleMenu}>
+                {isCheckRef.current}
+                <FiCheck className="h-6 w-6 ml-1" />
               </a>
-              <ul className="sort-list w-[170px] flex flex-col items-end p-4 gap-2 absolute -top-4 -right-4 border border-1 border-gray-400 bg-white z-10">
-                {sorts.map((item, i) => {
-                  return (
-                    <li key={i}>
-                      <a href="#" className="flex items-center">
-                        {item}
-                        <FiCheck className="h-6 w-6 ml-2" />
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
+              {isOpen && (
+                <ul className="sort-list w-[170px] flex flex-col items-end p-4 gap-2 absolute -top-4 -right-4 border border-1 border-gray-400 bg-white z-10">
+                  {sorts.map((sort, i) => {
+                    return (
+                      <li key={i}>
+                        <a
+                          href="#"
+                          className="flex items-center"
+                          onClick={handleSortClick}
+                        >
+                          <span>{sort}</span>
+                          <span className="w-7">
+                            {isCheckRef.current === sort && (
+                              <FiCheck className=" h-6 w-6 ml-1" />
+                            )}
+                          </span>
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
             </div>
           </div>
           <ul>
@@ -139,7 +156,7 @@ export const Ranking = () => {
                   title={item.title}
                   author={item.author}
                   genre={item.genre}
-                  number={item.number}
+                  number={i + 1}
                   image={item.imagexs}
                 />
               );
