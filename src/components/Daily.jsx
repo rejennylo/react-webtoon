@@ -150,63 +150,54 @@ const weekday = ["週一", "週二", "週三", "週四", "週五", "週六", "�
 
 export const Daily = () => {
   return (
-    <div className="flex flex-col">
-      <div className="bg-white">
-        <ul className="flex m-auto justify-center items-center max-w-[1110px] px-[2%]">
-          {weekday.map((day, i) => {
-            return (
-              <li
-                key={i}
-                className="flex justify-center items-center text-xl font-medium h-[62px] w-[12%] hover:text-teal-500"
-              >
-                <a href="#">{day}</a>
-              </li>
-            );
-          })}
-          <span className="hidden sm:inline-block border-solid border-l border-gray-300 h-5 ml-[3%]"></span>
-          <li className="hidden sm:flex justify-center items-center text-md font-medium text-gray-400 hover:text-teal-500 h-[62px] w-[120px]">
-            <a href="#">查看更多</a>
-          </li>
-        </ul>
-      </div>
-      <div className="bg-gray-100 border-b border-solid border-gray-200">
-        <ul className="m-auto max-w-[1110px] flex flex-wrap justify-center gap-3 lgs:justify-between my-5">
-          {dummyData.map((item, i) => {
-            return item.size === "small" ? (
-              <CardSm
-                key={i}
-                title={item.title}
-                author={item.author}
-                image={item.image}
-                synopsis={item.synopsis}
-                genre={item.genre}
-                likeis={item.likeis}
-                textColor={item.textColor}
-                bgColor={item.bgColor}
-                newRelease={item.newRelease}
-                update={item.update}
-                hiatus={item.hiatus}
-                completed={item.completed}
-              />
-            ) : (
-              <CardLg
-                key={i}
-                title={item.title}
-                author={item.author}
-                image={item.image}
-                synopsis={item.synopsis}
-                genre={item.genre}
-                likeis={item.likeis}
-                textColor={item.textColor}
-                bgColor={item.bgColor}
-                newRelease={item.newRelease}
-                update={item.update}
-                hiatus={item.hiatus}
-                completed={item.completed}
-              />
-            );
-          })}
-        </ul>
+    <div className="bg-gray-100 border-b border-solid border-gray-200">
+      <div className="flex flex-col w-full">
+        <div className="bg-white">
+          <ul className="m-auto max-w-[1110px] flex justify-between items-center px-[2%]">
+            {weekday.map((day, i) => {
+              return (
+                <li
+                  key={i}
+                  className="flex justify-center items-center text-xl font-medium h-[62px] w-[12%] hover:text-teal-500"
+                >
+                  <a href="#">{day}</a>
+                </li>
+              );
+            })}
+            <span className="hidden sm:inline-block border-solid border-l border-gray-300 h-5 ml-[3%]"></span>
+            <li className="hidden sm:flex justify-center items-center text-md font-medium text-gray-400 hover:text-teal-500 h-[62px] w-[120px]">
+              <a href="#">查看更多</a>
+            </li>
+          </ul>
+        </div>
+        <div className="w-full px-[6%] lg:px-0">
+          <div className="m-auto max-w-[1110px]">
+            <ul className="flex flex-wrap justify-center gap-[15px] lgs:justify-between">
+              {dummyData.map((item, i) => {
+                const props = {
+                  key: i,
+                  title: item.title,
+                  author: item.author,
+                  image: item.image,
+                  synopsis: item.synopsis,
+                  genre: item.genre,
+                  likeis: item.likeis,
+                  textColor: item.textColor,
+                  bgColor: item.bgColor,
+                  newRelease: item.newRelease,
+                  update: item.update,
+                  hiatus: item.hiatus,
+                  completed: item.completed,
+                };
+                return item.size === "small" ? (
+                  <CardSm {...props} />
+                ) : (
+                  <CardLg {...props} />
+                );
+              })}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );

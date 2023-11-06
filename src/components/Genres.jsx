@@ -133,7 +133,7 @@ const dummyData = [
 
 export const Genres = () => {
   return (
-    <div className="bg-gray-100 border-b border-solid border-gray-200">
+    <div className="bg-gray-100 border-b border-solid border-gray-200 px-[6%] lg:px-0">
       <div className="m-auto max-w-[1110px] py-10">
         <h2 className="text-xl font-semibold text-center pb-6">分類</h2>
         <ul className="flex flex-wrap justify-center gap-[15px] lgs:justify-between">

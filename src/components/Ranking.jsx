@@ -85,8 +85,8 @@ export const Ranking = () => {
   };
 
   return (
-    <div className="ranking-wrap px-16">
-      <div className="ranking-container max-w-[1110px] m-auto py-10 flex gap-16">
+    <div className="ranking-wrap px-[6%]">
+      <div className="ranking-container max-w-[1110px] m-auto py-10 flex gap-[6%]">
         <div className="right-area w-full">
           <div className="flex items-center mb-2">
             <h2 className="flex items-center">

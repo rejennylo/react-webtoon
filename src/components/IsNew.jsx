@@ -145,7 +145,7 @@ export const IsNew = () => {
   };
 
   return (
-    <div className="bg-gray-100 border-b border-solid border-gray-200">
+    <div className="bg-gray-100 border-b border-solid border-gray-200 px-[6%] lg:px-0">
       <div className="m-auto h-[362px] max-w-[1110px]">
         <h2 className="text-xl font-semibold text-center pt-8 pb-6">
           新作推薦
@@ -163,38 +163,25 @@ export const IsNew = () => {
             <div className="inline-block">
               <ul className="w-[1110px] flex justify-between">
                 {dummyData.slice(0, 4).map((item, i) => {
+                  const props = {
+                    key: i,
+                    title: item.title,
+                    author: item.author,
+                    image: item.image,
+                    synopsis: item.synopsis,
+                    genre: item.genre,
+                    likeis: item.likeis,
+                    textColor: item.textColor,
+                    bgColor: item.bgColor,
+                    newRelease: item.newRelease,
+                    update: item.update,
+                    hiatus: item.hiatus,
+                    completed: item.completed,
+                  };
                   return item.size === "small" ? (
-                    <CardSm
-                      key={i}
-                      title={item.title}
-                      author={item.author}
-                      image={item.image}
-                      synopsis={item.synopsis}
-                      genre={item.genre}
-                      likeis={item.likeis}
-                      textColor={item.textColor}
-                      bgColor={item.bgColor}
-                      newRelease={item.newRelease}
-                      update={item.update}
-                      hiatus={item.hiatus}
-                      completed={item.completed}
-                    />
+                    <CardSm {...props} />
                   ) : (
-                    <CardLg
-                      key={i}
-                      title={item.title}
-                      author={item.author}
-                      image={item.image}
-                      synopsis={item.synopsis}
-                      genre={item.genre}
-                      likeis={item.likeis}
-                      textColor={item.textColor}
-                      bgColor={item.bgColor}
-                      newRelease={item.newRelease}
-                      update={item.update}
-                      hiatus={item.hiatus}
-                      completed={item.completed}
-                    />
+                    <CardLg {...props} />
                   );
                 })}
               </ul>
@@ -202,38 +189,25 @@ export const IsNew = () => {
             <div className="inline-block">
               <ul className="w-[1110px] flex justify-between">
                 {dummyData.slice(4, 8).map((item, i) => {
+                  const props = {
+                    key: i,
+                    title: item.title,
+                    author: item.author,
+                    image: item.image,
+                    synopsis: item.synopsis,
+                    genre: item.genre,
+                    likeis: item.likeis,
+                    textColor: item.textColor,
+                    bgColor: item.bgColor,
+                    newRelease: item.newRelease,
+                    update: item.update,
+                    hiatus: item.hiatus,
+                    completed: item.completed,
+                  };
                   return item.size === "small" ? (
-                    <CardSm
-                      key={i}
-                      title={item.title}
-                      author={item.author}
-                      image={item.image}
-                      synopsis={item.synopsis}
-                      genre={item.genre}
-                      likeis={item.likeis}
-                      textColor={item.textColor}
-                      bgColor={item.bgColor}
-                      newRelease={item.newRelease}
-                      update={item.update}
-                      hiatus={item.hiatus}
-                      completed={item.completed}
-                    />
+                    <CardSm {...props} />
                   ) : (
-                    <CardLg
-                      key={i}
-                      title={item.title}
-                      author={item.author}
-                      image={item.image}
-                      synopsis={item.synopsis}
-                      genre={item.genre}
-                      likeis={item.likeis}
-                      textColor={item.textColor}
-                      bgColor={item.bgColor}
-                      newRelease={item.newRelease}
-                      update={item.update}
-                      hiatus={item.hiatus}
-                      completed={item.completed}
-                    />
+                    <CardLg {...props} />
                   );
                 })}
               </ul>
