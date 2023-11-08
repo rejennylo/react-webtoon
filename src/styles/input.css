@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 * {
-  /* outline: 1px solid orange; */
+  outline: 1px solid orange;
 }
 
 @layer components {
