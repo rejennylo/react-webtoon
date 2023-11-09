@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 * {
-  outline: 1px solid orange;
+  /* outline: 1px solid orange; */
 }
 
 @layer components {
@@ -21,5 +21,11 @@
   }
   .banner-bg{
     @apply bg-[url('/src/assets/dummy/home_bg002.jpg')];
+  }
+  .btn-page{
+    @apply inline-block rounded-full h-full w-full text-center;
+  }
+  .btn-page-on{
+    @apply inline-block rounded-full h-full w-full text-center bg-teal-500 text-white;
   }
 }
