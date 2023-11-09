@@ -17,7 +17,7 @@ export const CardLg = ({
   textColor,
   bgColor,
   newRelease,
-  update,
+  todayUp,
   hiatus,
   completed,
 }) => {
@@ -38,7 +38,7 @@ export const CardLg = ({
               {stateIcons.map((icon) => {
                 if (
                   (icon.id === 1 && newRelease) ||
-                  (icon.id === 2 && update) ||
+                  (icon.id === 2 && todayUp) ||
                   (icon.id === 3 && hiatus) ||
                   (icon.id === 4 && completed)
                 ) {

@@ -10,7 +10,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className=" relative z-[100]">
+      <header className="relative z-[100]">
         <div className="relative lgs:flex items-center m-auto max-w-[1360px]">
           <input type="checkbox" id="nav_control" className="peer/nav_control" />
         <h1>
